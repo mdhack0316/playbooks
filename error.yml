@@ -1,0 +1,17 @@
+--- 
+ - hosts: 192.168.10.231
+   become: true
+   ignore_errors: yes
+   tasks: 
+    - yum: name=ekt23 state=present
+      register: x
+    - debug: var=x
+    - service: name=ekt23 state=started enabled=yes
+      register: y
+    - debug: var=y
+    - debug: msg="installatin faild"
+      when: x.failed
+    - debug: msg="service failed"
+      when: y.failed 
+    - debug: msg="playbook was unsuccesful"
+      when: x.failed or y.failed 
