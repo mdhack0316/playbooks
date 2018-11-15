@@ -1,0 +1,9 @@
+---
+ - hosts: 192.168.10.231
+   become: true
+   tasks: 
+    - yum: name=httpd state=present 
+    - get_url: url=http://192.168.10.254/automation/httpd.conf dest=/etc/httpd/conf.d/sample.conf
+    - copy: content="adhoc networks"  dest=/var/www/html/index.html 
+    - lineinfile: path=/var/www/html/index.html line="hello world from {{ ansible_hostname }}" backup=yes
+    - service: name=httpd state=restarted enabled=yes
