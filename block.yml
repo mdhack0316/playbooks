@@ -3,6 +3,6 @@
    become: true
    tasks: 
     - block: 
-       - copy: path=/etc/examhost  dest=/var/index.html
+       - copy: src=/etc/examhost  dest=/var/index.html
       rescue: 
        - copy: content="hello adhoc" dest=/var/index.html 
