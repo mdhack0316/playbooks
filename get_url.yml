@@ -1,0 +1,5 @@
+---
+ - hosts: localhost
+   tasks: 
+    - name: downling something
+      get_url: url=http://192.168.10.254/automation/secure.html   dest=/var/www/html/

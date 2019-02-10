@@ -1,0 +1,14 @@
+---
+ - hosts: localhost 
+   tasks: 
+    - yum: name=httpd state=present
+      tags:
+       - yum 
+    - debug: msg="hi there"
+      
+    - copy: content="hello mdhack"  dest=/var/www/html/secure.html   
+      tags: 
+       - always 
+    - service: name=httpd state=restarted 
+      tags: 
+       - service 

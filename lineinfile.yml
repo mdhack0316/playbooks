@@ -1,0 +1,4 @@
+---
+ - hosts: localhost
+   tasks: 
+    - lineinfile: line="hii aashi"  dest=/etc/ansible/aa.html

@@ -1,0 +1,4 @@
+---
+ - hosts: localhost
+   tasks: 
+    - replace: path=/etc/ansible/aa.html   regexp="aashi"   replace="modi"

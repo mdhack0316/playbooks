@@ -1,0 +1,6 @@
+---
+ - hosts: localhost
+   tasks: 
+    - name: creating a directory 
+      file: path=/var/www/html/aashi  state=directory
+    - file: path=/var/www/html/aashi1  state=touch

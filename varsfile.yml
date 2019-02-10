@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   vars_files: 
+    - adhoc.yml 
+   tasks: 
+    - yum: name={{ item }} state=present
+      with_items: 
+       - "{{x}}"
+       - "{{y}}"

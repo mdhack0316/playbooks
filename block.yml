@@ -1,8 +1,8 @@
 ---
- - hosts: 192.168.10.231
-   become: true
+ - hosts: localhost
    tasks: 
-    - block: 
-       - copy: src=/etc/examhost  dest=/var/index.html
+    - name: making block 
+      block: 
+       - copy: src=/etc/examhost  dest=/var/index.html 
       rescue: 
-       - copy: content="hello adhoc" dest=/var/index.html 
+       - copy: src=/etc/magic dest=/var/www/
